@@ -1,7 +1,7 @@
 import Image from "next/image";
 import InstallTelegramButton from "./InstallTelegramButton";
 
-const TELEGRAM_LINK = "https://t.me/+PZ4PKBPkMr5kMjNi";
+const TELEGRAM_LINK = "https://t.me/Wolfgang_Money";
 const TELEGRAM_MANAGER_LINK = "https://t.me/Wolfgang_Money";
 
 export default function Home() {

@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+:root {
+  --tg-blue: #2aabee;
+  --tg-deep: #1c6fb8;
+  --tg-dark: #0e3a5f;
+  --tg-light: #eaf6ff;
+  --card-bg: rgba(6, 34, 61, 0.55);
+  --card-border: rgba(160, 215, 255, 0.28);
+  --glow: rgba(94, 210, 255, 0.55);
+  --font-body: var(--font-sora);
+  --font-display: var(--font-chakra);
+}
+
+@theme inline {
+  --font-sans: var(--font-body);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: linear-gradient(180deg, #0a2f50 0%, #0f4d84 52%, #082840 100%);
+  color: var(--tg-light);
+  font-family: var(--font-body), sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 56px 20px;
+  overflow: hidden;
+}
+
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.page::before {
+  background:
+    radial-gradient(520px 320px at 20% 10%, rgba(255, 255, 255, 0.24), transparent 60%),
+    radial-gradient(420px 420px at 85% 20%, rgba(99, 200, 255, 0.28), transparent 70%),
+    radial-gradient(380px 380px at 15% 85%, rgba(12, 54, 94, 0.65), transparent 70%);
+  opacity: 0.9;
+}
+
+.page::after {
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.16) 0%, transparent 45%),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 2px,
+      transparent 2px,
+      transparent 10px
+    );
+  mix-blend-mode: screen;
+  opacity: 0.35;
+}
+
+.card {
+  position: relative;
+  width: min(520px, 100%);
+  padding: 36px 28px 32px;
+  border-radius: 28px;
+  background: rgba(6, 34, 61, 0.68);
+  border: 1px solid var(--card-border);
+  box-shadow:
+    0 24px 50px rgba(5, 25, 45, 0.35),
+    0 0 0 1px rgba(120, 210, 255, 0.08),
+    0 0 30px rgba(94, 210, 255, 0.2);
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.avatar-link {
+  display: inline-flex;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.avatar-frame {
+  width: 176px;
+  height: 176px;
+  padding: 6px;
+  border-radius: 999px;
+  background: conic-gradient(from 210deg, #90e0ff, #2aabee, #1671b9, #90e0ff);
+  box-shadow:
+    0 12px 26px rgba(8, 40, 70, 0.45),
+    0 0 24px rgba(94, 210, 255, 0.4);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #0d2f4f;
+  border: 4px solid rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.description {
+  margin: 0;
+  max-width: 30rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(234, 246, 255, 0.95);
+}
+
+.actions {
+  width: 100%;
+  display: grid;
+  gap: 12px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #ffffff 0%, #e6f7ff 55%, #a5e1ff 100%);
+  color: #082840;
+  box-shadow:
+    0 10px 22px rgba(5, 30, 55, 0.4),
+    0 0 18px rgba(159, 231, 255, 0.6);
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 28px rgba(5, 30, 55, 0.45),
+    0 0 24px rgba(159, 231, 255, 0.7);
+}
+
+.button-secondary {
+  background: rgba(8, 35, 60, 0.7);
+  color: #eaf6ff;
+  border: 1px solid rgba(159, 223, 255, 0.7);
+  box-shadow: 0 8px 18px rgba(5, 22, 40, 0.35);
+}
+
+.button-secondary:hover {
+  background: rgba(13, 60, 98, 0.85);
+}
+
+.tg-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+@media (max-width: 540px) {
+  .card {
+    padding: 28px 20px 26px;
+  }
+
+  .avatar-frame {
+    width: 150px;
+    height: 150px;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
